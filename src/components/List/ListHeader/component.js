@@ -10,7 +10,9 @@ const ListHeaderComponent = ({ value, onInputChange, onAddItem }) => (
 );
 
 ListHeaderComponent.propTypes = {
-  data: PropTypes.array.isRequired
+  value: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onAddItem: PropTypes.func.isRequired,
 };
 
 export default ListHeaderComponent;

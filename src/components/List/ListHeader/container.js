@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+
+import { addTodo } from "../../../store/todos/actions";
 
 import ListHeaderComponent from "./component";
 
-const ListHeader = ({ onUpdateList }) => {
+const ListHeader = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
   const handleAddItem = () => {
     if (value.length === 0 ) return;
-    
-    onUpdateList({
+
+    addTodo({
       id: Math.random(),
       text: value,
       isEdit: false,
@@ -31,4 +34,8 @@ const ListHeader = ({ onUpdateList }) => {
   );
 };
 
-export default ListHeader;
+const mapDispatchToProps = {
+  addTodo,
+};
+
+export default connect(null, mapDispatchToProps)(ListHeader);
